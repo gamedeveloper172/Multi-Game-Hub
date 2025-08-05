@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Whack-a-Mole - Game Hub</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #1e1e1e;
+    }
+
+    .app-container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .app-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      object-fit: cover;
+    }
+
+    .app-info h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .company {
+      color: #c0392b;
+      font-weight: 600;
+      margin: 4px 0;
+    }
+
+    .meta, .details span {
+      color: #777;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .details {
+      margin-top: 6px;
+    }
+
+    .install-btn {
+      margin-top: 12px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #e67e22, #d35400);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .install-btn:hover {
+      background: linear-gradient(135deg, #d35400, #e67e22);
+      transform: translateY(-2px);
+    }
+
+    .availability {
+      color: #666;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .screenshots {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .screenshots img {
+      width: 30%;
+      min-width: 100px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+
+    .section {
+      margin: 30px 0;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .section p,
+    .section li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .data-points li {
+      margin: 6px 0;
+    }
+
+    .rating-summary h3 {
+      font-size: 34px;
+      color: #d35400;
+      margin-bottom: 5px;
+    }
+
+    .bar-graph div {
+      font-size: 14px;
+      margin: 4px 0;
+      color: #555;
+    }
+
+    .review {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .date {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .review-text {
+      margin: 10px 0;
+      color: #444;
+    }
+
+    .review span {
+      color: #e25555;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .screenshots {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .screenshots img {
+        width: 80%;
+      }
+
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <img src="app.png" alt="Whack-a-Mole Icon" class="app-icon" />
+      <div class="app-info">
+        <h1>Whack-a-Mole</h1>
+        <p class="company">TapStrike Games</p>
+        <p class="meta">Contains ads · In-app purchases</p>
+        <div class="details">
+          <span>4.8 ★</span>
+          <span>500K+ Downloads</span>
+          <span>Arcade Favorite</span>
+        </div>
+        <button class="install-btn" onclick="window.location.href='molegame.html'">▶️ Play Game</button>
+        <button class="install-btn" onclick="window.location.href='molegame.html'">* Install *</button>
+        <p class="availability">Play on any device in your browser!</p>
+      </div>
+    </div>
+
+    <div class="screenshots">
+      <img src="https://www.memory-improvement-tips.com/images/hammer-whack.jpg" alt="Whack-a-Mole Screenshot 1" />
+      <img src="https://www.memory-improvement-tips.com/images/hammer-whack.jpg" alt="Whack-a-Mole Screenshot 2" />
+      <img src="https://www.memory-improvement-tips.com/images/hammer-whack.jpg" alt="Whack-a-Mole Screenshot 3" />
+    </div>
+
+    <div class="section">
+      <h2>About this game</h2>
+      <p>
+        🐹 Whack-a-Mole is a fast-paced reflex game where you tap on moles as they pop up!
+        The faster you react, the more you score! Great for sharpening your reflexes and having fun.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>What’s new</h2>
+      <p>v1.0.0 - First launch with 3 difficulty levels, sound effects, and leaderboard support.</p>
+    </div>
+
+    <div class="section">
+      <h2>Data Safety</h2>
+      <ul class="data-points">
+        <li>🔐 No personal data collected</li>
+        <li>📶 Works offline</li>
+        <li>🔒 Safe for kids</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Ratings and reviews</h2>
+      <div class="rating-summary">
+        <h3>4.8 ★</h3>
+        <p>Reviews: 1.1K</p>
+        <div class="bar-graph">
+          <div>5 ★████████████</div>
+          <div>4 ★██</div>
+          <div>3 ★</div>
+          <div>2 ★</div>
+          <div>1 ★</div>
+        </div>
+      </div>
+
+      <div class="review">
+        <p class="user-name">Mina K.</p>
+        <p class="date">30 July 2025</p>
+        <p class="review-text">Hilarious and fun. Brings back childhood memories from the arcade!</p>
+        <span>❤️ 89</span>
+      </div>
+
+      <div class="review">
+        <p class="user-name">Rahul Dev</p>
+        <p class="date">29 July 2025</p>
+        <p class="review-text">Clean graphics and satisfying gameplay. Would love more mole types!</p>
+        <span>❤️ 47</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
