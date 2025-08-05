@@ -1,0 +1,24 @@
+const CACHE_NAME = "multi-game-cache-v1";
+const urlsToCache = [
+  "/",
+  "/index.html",
+  "/manifest.json",
+  "/whack-a-mole/moleindex.html",
+  "/whack-a-mole/molegame.html",
+  "/whack-a-mole/app.png",
+  "/enemy-game/enemyindex.html",
+  "/enemy-game/enemygame.html",
+  "/enemy-game/enemy.png"
+];
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+  );
+});
+
+self.addEventListener("fetch", (event) => {
+  event.respondWith(
+    caches.match(event.request).then(response => response || fetch(event.request))
+  );
+});
