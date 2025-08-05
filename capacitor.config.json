@@ -1,7 +1,7 @@
 const config = {
   appId: "com.maxapps.multigamehub",
   appName: "MultiGameHub",
-  webDir: "dist",     // Change to "build" or your Vercel output directory
+  webDir: ".",     // Change to "build" or your Vercel output directory
   bundledWebRuntime: false
 };
 
