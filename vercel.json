@@ -1,7 +1,8 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/www/landing.html" },
-    { "source": "/game", "destination": "/www/index.html" },
-    { "source": "/(.*)", "destination": "/www/$1" }
+    { "source": "/whack-a-mole", "destination": "/whack-a-mole/moleindex.html" },
+    { "source": "/whack-a-mole/play", "destination": "/whack-a-mole/molegame.html" },
+    { "source": "/enemy-game", "destination": "/enemy-game/enemyindex.html" },
+    { "source": "/enemy-game/play", "destination": "/enemy-game/enemygame.html" }
   ]
 }
