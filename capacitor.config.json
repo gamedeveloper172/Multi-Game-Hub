@@ -1,6 +1,8 @@
-{
-  "server": {
-    "url": "https://tap-the-enemy-game.vercel.app",
-    "cleartext": false
-  }
-}
+const config = {
+  appId: "com.maxapps.multigamehub",
+  appName: "MultiGameHub",
+  webDir: "dist",     // Change to "build" or your Vercel output directory
+  bundledWebRuntime: false
+};
+
+export default config;
