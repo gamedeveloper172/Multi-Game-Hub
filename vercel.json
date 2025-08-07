@@ -2,7 +2,7 @@
   "rewrites": [
     { "source": "/whack-a-mole", "destination": "/whack-a-mole/moleindex.html" },
     { "source": "/whack-a-mole/play", "destination": "/whack-a-mole/molegame.html" },
-    { "source": "/enemy-game", "destination": "/enemy-game/enemyindex.html" },
-    { "source": "/enemy-game/play", "destination": "/enemy-game/enemygame.html" }
+    { "source": "/puzzle", "destination": "/puzzle/puzzleindex.html" },
+    { "source": "/puzzle/play", "destination": "/puzzle/puzzlegame.html" }
   ]
 }
