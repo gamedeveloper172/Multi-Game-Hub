@@ -20,7 +20,7 @@
 
     header {
       background: linear-gradient(90deg, #e67e22, #d35400);
-      padding: 30px 20px;
+      padding: 24px 16px;
       text-align: center;
       color: white;
       border-bottom-left-radius: 20px;
@@ -29,65 +29,71 @@
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 600;
-      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 14px;
+      margin-top: 6px;
     }
 
     .games {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      max-width: 1000px;
-      padding: 40px 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      padding: 32px 16px;
       margin: 0 auto;
     }
 
     .game-card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
       overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       cursor: pointer;
     }
 
     .game-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
     .game-card img {
       width: 100%;
-      height: 180px;
+      max-height: 140px;
       object-fit: cover;
+      border-bottom: 1px solid #eee;
     }
 
     .game-info {
-      padding: 20px;
+      padding: 16px;
     }
 
     .game-info h2 {
-      margin-top: 0;
-      font-size: 22px;
+      margin: 0 0 6px;
+      font-size: 18px;
       color: #d35400;
     }
 
     .game-info p {
-      font-size: 14px;
+      font-size: 13px;
       color: #555;
-      margin: 10px 0 16px;
+      margin-bottom: 10px;
     }
 
     .game-info button {
-      padding: 10px 20px;
-      font-size: 14px;
+      padding: 8px 14px;
+      font-size: 13px;
       background: linear-gradient(to right, #e67e22, #d35400);
       border: none;
-      border-radius: 8px;
+      border-radius: 6px;
       color: white;
       font-weight: 600;
       cursor: pointer;
+      width: 100%;
       transition: background 0.3s ease;
     }
 
@@ -95,21 +101,26 @@
       background: linear-gradient(to right, #d35400, #e67e22);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 480px) {
       header h1 {
-        font-size: 26px;
+        font-size: 24px;
+      }
+
+      .game-card img {
+        max-height: 120px;
       }
 
       .game-info h2 {
-        font-size: 18px;
+        font-size: 16px;
       }
 
       .game-info p {
-        font-size: 13px;
+        font-size: 12px;
       }
 
       .game-info button {
-        width: 100%;
+        font-size: 12px;
+        padding: 8px;
       }
     }
   </style>
@@ -118,36 +129,36 @@
 
   <header>
     <h1>🎮 TapStrike Game Hub</h1>
-    <p style="margin-top: 10px; font-weight: 400;">Explore & Play Addictive Games Instantly!</p>
+    <p>Fun games for everyone, play anytime!</p>
   </header>
 
   <div class="games">
-    <!-- Game 1 -->
+    <!-- Whack-a-Mole -->
     <div class="game-card" onclick="location.href='/whack-a-mole/moleindex.html'">
-      <img src="/whack-a-mole/app.png" alt="Whack-a-Mole Icon">
+      <img src="/whack-a-mole/app.png" alt="Whack-a-Mole">
       <div class="game-info">
         <h2>Whack-a-Mole</h2>
-        <p>Tap the moles quickly before they vanish! A fun reflex challenge for all ages.</p>
+        <p>Tap the moles before they disappear!</p>
         <button>Play Now</button>
       </div>
     </div>
 
-    <!-- Game 2 -->
+    <!-- Puzzle Game -->
     <div class="game-card" onclick="location.href='/puzzle/puzzleindex.html'">
-      <img src="/puzzle/app.png" alt="Puzzle Icon">
+      <img src="/puzzle/app.png" alt="Puzzle Game">
       <div class="game-info">
         <h2>Puzzle Game</h2>
-        <p>Slide and match to solve the grid! Perfect for puzzle lovers seeking a challenge.</p>
+        <p>Solve the tiles and unlock fun!</p>
         <button>Play Now</button>
       </div>
     </div>
 
-    <!-- Game 3 (slot game placeholder) -->
+    <!-- Slot Number -->
     <div class="game-card" onclick="location.href='/slot/slotindex.html'">
-      <img src="/slot/app.png" alt="Slot Game Icon">
+      <img src="/slot/app.png" alt="Slot Game">
       <div class="game-info">
         <h2>Slot Number</h2>
-        <p>Spin the slot and match numbers! A game of luck with exciting animations.</p>
+        <p>Spin and match numbers to win!</p>
         <button>Play Now</button>
       </div>
     </div>
