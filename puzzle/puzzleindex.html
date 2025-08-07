@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Puzzle Blocks - Game Hub</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4f5f7;
+      color: #1e1e1e;
+    }
+
+    .app-container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 25px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .app-icon {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .app-info h1 {
+      margin: 0;
+      font-size: 28px;
+      color: #333;
+    }
+
+    .company {
+      color: #0077cc;
+      font-weight: 600;
+    }
+
+    .meta, .details span {
+      color: #777;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+
+    .install-btn {
+      margin-top: 12px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, #3740ff, #5560ff);
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .install-btn:hover {
+      background: linear-gradient(135deg, #2f38e0, #4851e5);
+      transform: translateY(-2px);
+    }
+
+    .availability {
+      color: #666;
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .screenshots {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .screenshots img {
+      width: 30%;
+      min-width: 100px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .screenshots img:hover {
+      transform: scale(1.05);
+    }
+
+    .section {
+      margin: 30px 0;
+    }
+
+    .section h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .section p,
+    .section li {
+      font-size: 15px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .data-points li {
+      margin: 6px 0;
+    }
+
+    .rating-summary h3 {
+      font-size: 34px;
+      color: #3740ff;
+      margin-bottom: 5px;
+    }
+
+    .bar-graph div {
+      font-size: 14px;
+      margin: 4px 0;
+      color: #555;
+    }
+
+    .review {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .user-name {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .date {
+      font-size: 13px;
+      color: #999;
+      margin-bottom: 8px;
+    }
+
+    .review-text {
+      margin: 10px 0;
+      color: #444;
+    }
+
+    .review span {
+      color: #e25555;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .screenshots {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .screenshots img {
+        width: 80%;
+      }
+
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <img src="icon.png" alt="Puzzle Icon" class="app-icon">
+      <div class="app-info">
+        <h1>Puzzle Blocks</h1>
+        <p class="company">MAX Apps</p>
+        <p class="meta">Brain Games · 4x4 Puzzle</p>
+        <p class="meta">Contains ads · In-app purchases</p>
+        <div class="details">
+          <span>4.8 ★</span>
+          <span>500K+ Downloads</span>
+          <span>Top Trending</span>
+        </div>
+        <button class="install-btn" onclick="window.location.href='puzzlegame.html'">▶️ Play Game</button>
+           <a href="https://github.com/gamedeveloper172/multi-game-hub/releases/download/v1.0.1/app-mole-debug.apk" 
+   class="install-btn"
+   target="_blank"
+   rel="noopener noreferrer">
+   📦 Download & Install APK
+</a>
+        <p class="availability">Available on all modern browsers</p>
+      </div>
+    </div>
+
+    <div class="screenshots">
+      <img src="https://play-lh.googleusercontent.com/nws3X3ZaEBpT6_d-j7rS1uPtw9ccHXzzvZfsnb8iHm3NmM6m3uP0sm4WxXx6Wwuu0g=w526-h296-rw" alt="Screenshot 1">
+      <img src="https://play-lh.googleusercontent.com/nws3X3ZaEBpT6_d-j7rS1uPtw9ccHXzzvZfsnb8iHm3NmM6m3uP0sm4WxXx6Wwuu0g=w526-h296-rw" alt="Screenshot 2">
+    </div>
+
+    <div class="section">
+      <h2>About this game</h2>
+      <p>🧩 Puzzle Blocks is a classic 4x4 sliding puzzle game designed to test your logic and speed. Rearrange the tiles into order as quickly as you can!</p>
+      <p><strong>Updated:</strong> 30 July 2025</p>
+    </div>
+
+    <div class="section">
+      <h2>What’s new</h2>
+      <p>v1.0.0 - Initial release with time challenge and shuffle modes!</p>
+    </div>
+
+    <div class="section">
+      <h2>Data Safety</h2>
+      <ul class="data-points">
+        <li>🔐 No data collected or shared</li>
+        <li>💾 Runs entirely on-device</li>
+        <li>🛡️ Secure and offline-friendly</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Ratings and reviews</h2>
+      <div class="rating-summary">
+        <h3>4.8 ★</h3>
+        <p>Reviews: 1.1K</p>
+        <div class="bar-graph">
+          <div>5 ★█████████████</div>
+          <div>4 ★██</div>
+          <div>3 ★</div>
+          <div>2 ★</div>
+          <div>1 ★</div>
+        </div>
+      </div>
+
+      <div class="review">
+        <p class="user-name">Neha Jain</p>
+        <p class="date">30 July 2025</p>
+        <p class="review-text">A smart and clean puzzle. Loved the simplicity and the timer challenge!</p>
+        <span>❤️ 88</span>
+      </div>
+
+      <div class="review">
+        <p class="user-name">Rohit Verma</p>
+        <p class="date">29 July 2025</p>
+        <p class="review-text">Great logic puzzle. Reminds me of the classic tile games I used to play.</p>
+        <span>❤️ 47</span>
+      </div>
+
+      <div class="review">
+        <p class="user-name">Sana Mir</p>
+        <p class="date">28 July 2025</p>
+        <p class="review-text">Minimal and brain-twisting. Would love more difficulty levels!</p>
+        <span>❤️ 66</span>
+      </div>
+
+      <div class="review">
+        <p class="user-name">LogicKing</p>
+        <p class="date">27 July 2025</p>
+        <p class="review-text">Nice time-killer. Smooth animations and simple controls.</p>
+        <span>❤️ 52</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
