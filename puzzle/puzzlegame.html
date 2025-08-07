@@ -1,65 +1,106 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sliding Puzzle Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #121212;
+      font-family: 'Inter', sans-serif;
+      background-color: #0e0e0e;
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 20px;
+      min-height: 100vh;
     }
 
     h1 {
-      color: #00cc99;
+      color: #00ffc8;
+      font-size: 28px;
       margin-bottom: 10px;
+      text-shadow: 0 0 8px #00ffc8;
     }
 
     #timer {
-      font-size: 20px;
-      color: #00ffcc;
-      margin-bottom: 20px;
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #ffffffcc;
     }
 
     #puzzle {
       display: grid;
-      grid-template-columns: repeat(4, 80px);
-      grid-template-rows: repeat(4, 80px);
-      gap: 4px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      width: 90vw;
+      max-width: 360px;
+      margin: 0 auto;
     }
 
     .tile {
-      width: 80px;
-      height: 80px;
+      aspect-ratio: 1 / 1;
+      background-color: #00cc99;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #00cc99;
-      font-size: 24px;
+      font-size: 6vw;
       font-weight: bold;
-      border-radius: 6px;
+      color: #fff;
       cursor: pointer;
-      transition: transform 0.2s;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
       user-select: none;
     }
 
-    .empty {
-      background-color: transparent;
+    .tile.empty {
+      background: transparent;
+      box-shadow: none;
       cursor: default;
     }
 
     #message {
+      font-size: 18px;
+      color: #00ffc8;
       margin-top: 20px;
-      font-size: 20px;
-      color: #66ff99;
+      text-align: center;
+    }
+
+    #restart-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      background: #00cc99;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    #restart-btn:hover {
+      background: #00b28c;
+    }
+
+    @media (max-width: 400px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      #timer {
+        font-size: 16px;
+      }
+
+      .tile {
+        font-size: 7vw;
+      }
     }
   </style>
 </head>
@@ -68,11 +109,18 @@
   <div id="timer">Time: 00:00</div>
   <div id="puzzle"></div>
   <div id="message"></div>
+  <button id="restart-btn" onclick="restartGame()">🔄 Restart</button>
+
+  <!-- Sound effects -->
+  <audio id="move-sound" src="https://cdn.pixabay.com/download/audio/2023/09/13/audio_4f0ef45b8f.mp3" preload="auto"></audio>
+  <audio id="win-sound" src="https://cdn.pixabay.com/download/audio/2023/08/05/audio_cbf44916a5.mp3" preload="auto"></audio>
 
   <script>
     const puzzle = document.getElementById('puzzle');
     const message = document.getElementById('message');
     const timerEl = document.getElementById('timer');
+    const moveSound = document.getElementById('move-sound');
+    const winSound = document.getElementById('win-sound');
 
     let tiles = [];
     let emptyIndex = 15;
@@ -85,6 +133,7 @@
       tiles.push(null); // empty tile
       shuffleTiles();
       drawPuzzle();
+      message.textContent = '';
     }
 
     function shuffleTiles() {
@@ -93,7 +142,7 @@
           const j = Math.floor(Math.random() * (i + 1));
           [tiles[i], tiles[j]] = [tiles[j], tiles[i]];
         }
-      } while (!isSolvable(tiles));
+      } while (!isSolvable(tiles) || checkWin());
       emptyIndex = tiles.indexOf(null);
     }
 
@@ -136,8 +185,12 @@
           started = true;
         }
 
+        moveSound.currentTime = 0;
+        moveSound.play();
+
         if (checkWin()) {
           stopTimer();
+          winSound.play();
           message.textContent = `🎉 You Win! Time: ${timerEl.textContent.split(' ')[1]}`;
         }
       }
@@ -164,7 +217,16 @@
       clearInterval(timerInterval);
     }
 
-    initPuzzle();
+    function restartGame() {
+      stopTimer();
+      started = false;
+      timerEl.textContent = 'Time: 00:00';
+      initPuzzle();
+    }
+
+    window.onload = () => {
+      initPuzzle();
+    };
   </script>
 </body>
 </html>
