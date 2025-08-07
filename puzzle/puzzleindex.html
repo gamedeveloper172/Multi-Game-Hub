@@ -53,19 +53,30 @@
       margin-right: 10px;
     }
 
-    .install-btn {
+    .details {
+      margin-top: 5px;
+    }
+
+    .action-btn {
+      display: inline-block;
       margin-top: 12px;
-      padding: 12px 24px;
+      padding: 14px 20px;
       background: linear-gradient(135deg, #3740ff, #5560ff);
       color: white;
       font-size: 16px;
+      font-weight: 600;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      width: fit-content;
     }
 
-    .install-btn:hover {
+    .action-btn:hover,
+    .action-btn:focus {
       background: linear-gradient(135deg, #2f38e0, #4851e5);
       transform: translateY(-2px);
     }
@@ -174,6 +185,12 @@
         flex-direction: column;
         text-align: center;
       }
+
+      .action-btn {
+        width: 100%;
+        padding: 16px 0;
+        font-size: 17px;
+      }
     }
   </style>
 </head>
@@ -191,13 +208,18 @@
           <span>500K+ Downloads</span>
           <span>Top Trending</span>
         </div>
-        <button class="install-btn" onclick="window.location.href='puzzlegame.html'">▶️ Play Game</button>
-           <a href="https://github.com/gamedeveloper172/multi-game-hub/releases/download/v1.0.1/app-puzzle-debug.apk" 
-   class="install-btn"
-   target="_blank"
-   rel="noopener noreferrer">
-   📦 Download & Install APK
-</a>
+
+        <!-- Play Button -->
+        <a href="puzzlegame.html" class="action-btn">▶️ Play Game</a>
+
+        <!-- Download APK Button -->
+        <a href="https://github.com/gamedeveloper172/multi-game-hub/releases/download/v1.0.1/app-puzzle-debug.apk" 
+           class="action-btn"
+           target="_blank"
+           rel="noopener noreferrer">
+           📦 Download & Install APK
+        </a>
+
         <p class="availability">Available on all modern browsers</p>
       </div>
     </div>
