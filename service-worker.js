@@ -6,9 +6,9 @@ const urlsToCache = [
   "/whack-a-mole/moleindex.html",
   "/whack-a-mole/molegame.html",
   "/whack-a-mole/app.png",
-  "/enemy-game/enemyindex.html",
-  "/enemy-game/enemygame.html",
-  "/enemy-game/enemy.png"
+  "/puzzle/puzzleindex.html",
+  "/puzzle/puzzlegame.html",
+  "/puzzle/app.png"
 ];
 
 self.addEventListener("install", (event) => {
