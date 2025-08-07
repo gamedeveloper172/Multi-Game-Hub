@@ -8,110 +8,93 @@
   <style>
     * {
       box-sizing: border-box;
+      padding: 0;
+      margin: 0;
     }
 
     body {
-      margin: 0;
-      padding: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to right, #fdfcfb, #e2d1c3);
+      background: #f4f6f8;
+      padding: 16px;
       color: #333;
     }
 
-    header {
-      background: linear-gradient(90deg, #e67e22, #d35400);
-      padding: 24px 16px;
+    h1 {
       text-align: center;
-      color: white;
-      border-bottom-left-radius: 20px;
-      border-bottom-right-radius: 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-      font-weight: 600;
-    }
-
-    header p {
-      font-size: 14px;
-      margin-top: 6px;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #d35400;
     }
 
     .games {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      max-width: 960px;
-      padding: 32px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 480px;
       margin: 0 auto;
     }
 
     .game-card {
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-      overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
+      background: white;
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s ease;
     }
 
     .game-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .game-card img {
-      width: 100%;
-      max-height: 140px;
+      width: 64px;
+      height: 64px;
       object-fit: cover;
-      border-bottom: 1px solid #eee;
+      border-radius: 10px;
+      margin-right: 12px;
     }
 
     .game-info {
-      padding: 16px;
+      flex: 1;
     }
 
     .game-info h2 {
-      margin: 0 0 6px;
-      font-size: 18px;
-      color: #d35400;
+      font-size: 16px;
+      margin-bottom: 4px;
+      color: #333;
     }
 
     .game-info p {
       font-size: 13px;
-      color: #555;
-      margin-bottom: 10px;
+      color: #777;
     }
 
     .game-info button {
-      padding: 8px 14px;
+      margin-top: 8px;
       font-size: 13px;
-      background: linear-gradient(to right, #e67e22, #d35400);
+      padding: 6px 12px;
+      background-color: #e67e22;
+      color: white;
       border: none;
       border-radius: 6px;
-      color: white;
-      font-weight: 600;
       cursor: pointer;
-      width: 100%;
-      transition: background 0.3s ease;
+      transition: background 0.2s ease;
     }
 
     .game-info button:hover {
-      background: linear-gradient(to right, #d35400, #e67e22);
+      background-color: #d35400;
     }
 
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 24px;
-      }
-
+    @media (max-width: 400px) {
       .game-card img {
-        max-height: 120px;
+        width: 56px;
+        height: 56px;
       }
 
       .game-info h2 {
-        font-size: 16px;
+        font-size: 15px;
       }
 
       .game-info p {
@@ -120,46 +103,43 @@
 
       .game-info button {
         font-size: 12px;
-        padding: 8px;
+        padding: 6px 10px;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🎮 TapStrike Game Hub</h1>
-    <p>Fun games for everyone, play anytime!</p>
-  </header>
+  <h1>🎮 TapStrike Game Hub</h1>
 
   <div class="games">
     <!-- Whack-a-Mole -->
-    <div class="game-card" onclick="location.href='/whack-a-mole/moleindex.html'">
+    <div class="game-card">
       <img src="/whack-a-mole/app.png" alt="Whack-a-Mole">
       <div class="game-info">
         <h2>Whack-a-Mole</h2>
-        <p>Tap the moles before they disappear!</p>
-        <button>Play Now</button>
+        <p>Tap moles before they disappear!</p>
+        <button onclick="location.href='/whack-a-mole/moleindex.html'">Play</button>
       </div>
     </div>
 
     <!-- Puzzle Game -->
-    <div class="game-card" onclick="location.href='/puzzle/puzzleindex.html'">
+    <div class="game-card">
       <img src="/puzzle/app.png" alt="Puzzle Game">
       <div class="game-info">
         <h2>Puzzle Game</h2>
-        <p>Solve the tiles and unlock fun!</p>
-        <button>Play Now</button>
+        <p>Solve puzzles and have fun!</p>
+        <button onclick="location.href='/puzzle/puzzleindex.html'">Play</button>
       </div>
     </div>
 
-    <!-- Slot Number -->
-    <div class="game-card" onclick="location.href='/slot/slotindex.html'">
-      <img src="/slot/app.png" alt="Slot Game">
+    <!-- Slot Game -->
+    <div class="game-card">
+      <img src="/slot/app.png" alt="Slot Number">
       <div class="game-info">
         <h2>Slot Number</h2>
-        <p>Spin and match numbers to win!</p>
-        <button>Play Now</button>
+        <p>Spin the slots and win!</p>
+        <button onclick="location.href='/slot/slotindex.html'">Play</button>
       </div>
     </div>
   </div>
