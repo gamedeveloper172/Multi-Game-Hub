@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chicken Cross Road - Game Hub</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f9fafb;
+      color: #1e1e1e;
+      font-size: 16px;
+    }
+    .app-container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      text-align: center;
+    }
+    .app-icon {
+      width: 90px;
+      height: 90px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .app-info h1 {
+      font-size: 1.75rem;
+      margin: 0.25rem 0;
+      color: #333;
+    }
+    .company { font-weight: 600; color: #27ae60; }
+    .meta, .details span {
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .details { margin: 0.5rem 0; }
+    .install-btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      margin: 0.5rem 0.3rem;
+      font-size: 1rem;
+      color: white;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+    .install-btn:hover {
+      background: linear-gradient(135deg, #2ecc71, #27ae60);
+      transform: translateY(-2px);
+    }
+    .availability {
+      font-size: 0.85rem;
+      color: #777;
+      margin-top: 0.5rem;
+    }
+    .screenshots {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .screenshots img {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .screenshots img:hover { transform: scale(1.03); }
+    .section { margin: 2rem 0; }
+    .section h2 {
+      font-size: 1.3rem;
+      color: #222;
+      margin-bottom: 0.75rem;
+    }
+    .section p,
+    .section li {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #444;
+    }
+    .data-points li { margin: 0.5rem 0; }
+    .rating-summary h3 {
+      font-size: 2rem;
+      color: #27ae60;
+      margin: 0.2rem 0;
+    }
+    .bar-graph div {
+      font-size: 0.9rem;
+      margin: 0.25rem 0;
+      color: #555;
+    }
+    .review {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    }
+    .user-name { font-weight: 600; color: #333; }
+    .date {
+      font-size: 0.8rem;
+      color: #999;
+      margin-bottom: 0.5rem;
+    }
+    .review-text { margin: 0.5rem 0; color: #444; }
+    .review span { color: #e25555; font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      .app-icon { width: 70px; height: 70px; }
+      .install-btn { width: 100%; padding: 1rem; }
+      .screenshots img { max-width: 90%; }
+      .header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <div class="header">
+      <img src="icon.png" alt="Chicken Cross Road Icon" class="app-icon" />
+      <div class="app-info">
+        <h1>Chicken Cross Road</h1>
+        <p class="company">SkyFarm Studios</p>
+        <p class="meta">Contains ads · In-app purchases</p>
+        <div class="details">
+          <span>4.7 ★</span>
+          <span>200K+ Downloads</span>
+          <span>Arcade Adventure</span>
+        </div>
+        <a href="chickgame.html" class="install-btn">▶️ Play Now</a>
+        <a href="https://example.com/chicken-cross-road.apk" class="install-btn" target="_blank" rel="noopener noreferrer">📦 Download APK</a>
+        <p class="availability">Play instantly on mobile or desktop!</p>
+      </div>
+    </div>
+
+    <div class="screenshots">
+  <img src="https://ordesong.org/wp-content/uploads/2025/05/chicken-road-avis.png" alt="Chicken Road Game Screenshot" />
+  <img src="https://ordesong.org/wp-content/uploads/2025/05/chicken-road-avis.png" alt="Chicken Road Game Screenshot" />
+</div>
+
+
+    <div class="section">
+      <h2>About this game</h2>
+      <p>🐔 Help the brave chicken cross busy roads filled with speeding cars and trucks! Dodge traffic, reach the other side, and rack up points. Simple controls, addictive gameplay, and endless fun for all ages.</p>
+    </div>
+
+    <div class="section">
+      <h2>What’s new</h2>
+      <p>v1.0.0 - Launch version with Easy, Medium, and Hard modes, sound effects, and mobile touch support.</p>
+    </div>
+
+    <div class="section">
+      <h2>Data Safety</h2>
+      <ul class="data-points">
+        <li>🔐 No personal data collected</li>
+        <li>📶 Works offline</li>
+        <li>🐥 Kid-friendly content</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Ratings and reviews</h2>
+      <div class="rating-summary">
+        <h3>4.7 ★</h3>
+        <p>Reviews: 820</p>
+        <div class="bar-graph">
+          <div>5 ★███████████</div>
+          <div>4 ★██</div>
+          <div>3 ★</div>
+          <div>2 ★</div>
+          <div>1 ★</div>
+        </div>
+      </div>
+
+      <div class="review">
+        <p class="user-name">Liam P.</p>
+        <p class="date">5 Aug 2025</p>
+        <p class="review-text">The controls are smooth and the difficulty scaling is perfect. I’m addicted!</p>
+        <span>❤️ 102</span>
+      </div>
+
+      <div class="review">
+        <p class="user-name">Sofia R.</p>
+        <p class="date">3 Aug 2025</p>
+        <p class="review-text">Reminds me of Frogger but way cuter. Love the chicken animations!</p>
+        <span>❤️ 76</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
 
