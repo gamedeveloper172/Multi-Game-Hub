@@ -9,6 +9,9 @@ const urlsToCache = [
   "/puzzle/puzzleindex.html",
   "/puzzle/puzzlegame.html",
   "/puzzle/app.png"
+  "/Chicken-Road/chickenindex.html",
+  "/Chicken-Road/chickengame.html",
+  "/Chicken-Road/app.png"
 ];
 
 self.addEventListener("install", (event) => {
