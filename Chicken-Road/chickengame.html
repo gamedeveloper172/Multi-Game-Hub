@@ -1,1 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chicken Crossing Game</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #87ceeb;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+    canvas {
+        background: #555;
+        border: 4px solid #333;
+        display: block;
+    }
+    .controls {
+        margin: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        justify-content: center;
+    }
+    button {
+        padding: 8px 12px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+    @media (max-width: 768px) {
+        canvas {
+            width: 100%;
+            height: auto;
+        }
+    }
+</style>
+</head>
+<body>
+
+<h1>🐔 Chicken Crossing Game</h1>
+<div class="controls">
+    <button onclick="startGame()">Start</button>
+    <button onclick="stopGame()">Stop</button>
+    <button onclick="setMode('easy')">Easy</button>
+    <button onclick="setMode('medium')">Medium</button>
+    <button onclick="setMode('hard')">Hard</button>
+    <button onclick="toggleSound()">🔊/🔇 Sound</button>
+    <span id="scoreDisplay">Score: 0</span>
+</div>
+<canvas id="gameCanvas" width="500" height="500"></canvas>
+
+<audio id="pointSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg"></audio>
+<audio id="crashSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+
+<script>
+const canvas = document.getElementById("gameCanvas");
+const ctx = canvas.getContext("2d");
+
+let chicken = { x: canvas.width / 2 - 15, y: canvas.height - 30, size: 30, speed: 20 };
+let cars = [];
+let carSpeed = 2;
+let gameRunning = false;
+let score = 0;
+let soundEnabled = true;
+
+// Touch controls for mobile
+let touchStartX = 0;
+let touchStartY = 0;
+
+function setMode(mode) {
+    if (mode === 'easy') carSpeed = 2;
+    if (mode === 'medium') carSpeed = 4;
+    if (mode === 'hard') carSpeed = 6;
+}
+
+function startGame() {
+    gameRunning = true;
+    resetGame();
+}
+
+function stopGame() {
+    gameRunning = false;
+}
+
+function toggleSound() {
+    soundEnabled = !soundEnabled;
+}
+
+function resetGame() {
+    chicken.y = canvas.height - chicken.size;
+    score = 0;
+    cars = [];
+}
+
+function spawnCar() {
+    cars.push({
+        x: Math.random() < 0.5 ? -50 : canvas.width + 50,
+        y: Math.random() * (canvas.height - 100),
+        width: 50,
+        height: 30,
+        speed: carSpeed * (Math.random() < 0.5 ? 1 : -1),
+        color: getRandomColor()
+    });
+}
+
+function getRandomColor() {
+    const colors = ["red", "blue", "green", "yellow", "purple", "orange"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function update() {
+    if (!gameRunning) return;
+    
+    // Move cars
+    cars.forEach(car => {
+        car.x += car.speed;
+    });
+    
+    // Remove off-screen cars
+    cars = cars.filter(car => car.x > -60 && car.x < canvas.width + 60);
+
+    // Collision detection
+    for (let car of cars) {
+        if (chicken.x < car.x + car.width &&
+            chicken.x + chicken.size > car.x &&
+            chicken.y < car.y + car.height &&
+            chicken.y + chicken.size > car.y) {
+            if (soundEnabled) document.getElementById("crashSound").play();
+            stopGame();
+        }
+    }
+
+    // If chicken reached top, score
+    if (chicken.y <= 0) {
+        score++;
+        if (soundEnabled) document.getElementById("pointSound").play();
+        chicken.y = canvas.height - chicken.size;
+    }
+
+    document.getElementById("scoreDisplay").innerText = "Score: " + score;
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Draw chicken
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(chicken.x + chicken.size / 2, chicken.y + chicken.size / 2, chicken.size / 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Draw cars
+    cars.forEach(car => {
+        ctx.fillStyle = car.color;
+        ctx.fillRect(car.x, car.y, car.width, car.height);
+    });
+}
+
+function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+}
+
+// Keyboard controls
+document.addEventListener("keydown", (e) => {
+    if (!gameRunning) return;
+    if (e.key === "ArrowUp") chicken.y -= chicken.speed;
+    if (e.key === "ArrowDown") chicken.y += chicken.speed;
+    if (e.key === "ArrowLeft") chicken.x -= chicken.speed;
+    if (e.key === "ArrowRight") chicken.x += chicken.speed;
+});
+
+// Touch controls for mobile
+canvas.addEventListener("touchstart", e => {
+    let touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+});
+
+canvas.addEventListener("touchend", e => {
+    let touch = e.changedTouches[0];
+    let dx = touch.clientX - touchStartX;
+    let dy = touch.clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy)) {
+        if (dx > 0) chicken.x += chicken.speed;
+        else chicken.x -= chicken.speed;
+    } else {
+        if (dy > 0) chicken.y += chicken.speed;
+        else chicken.y -= chicken.speed;
+    }
+});
+
+// Spawn cars at intervals
+setInterval(() => {
+    if (gameRunning) spawnCar();
+}, 1000);
+
+gameLoop();
+</script>
+
+</body>
+</html>
 
