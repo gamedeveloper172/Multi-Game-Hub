@@ -3,6 +3,8 @@
     { "source": "/whack-a-mole", "destination": "/whack-a-mole/moleindex.html" },
     { "source": "/whack-a-mole/play", "destination": "/whack-a-mole/molegame.html" },
     { "source": "/puzzle", "destination": "/puzzle/puzzleindex.html" },
-    { "source": "/puzzle/play", "destination": "/puzzle/puzzlegame.html" }
+    { "source": "/puzzle/play", "destination": "/puzzle/puzzlegame.html" },
+    { "source": "/Chicken-Road", "destination": "/Chicken-Road/chickenindex.html" },
+    { "source": "/Chicken-Road/play", "destination": "/Chicken-Road/chickengame.html" }
   ]
 }
